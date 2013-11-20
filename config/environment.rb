@@ -1,9 +1,12 @@
+$stdout.sync = $stderr.sync = true
 ENV['RACK_ENV'] ||= 'development'
 require 'bundler'
 Bundler.require :default, ENV['RACK_ENV']
 require 'ostruct'
+require 'logger'
 # Load ENV configuration. The precedence is: Existing (i.e. given in shell), .env.RACK_ENV, .env
 Dotenv.load ".env.#{ENV['RACK_ENV']}", '.env'
+
 
 module App
   Config = OpenStruct.new
@@ -16,7 +19,11 @@ module App
     def env
       @env ||= ENV['RACK_ENV']
     end
+
+    attr_accessor :logger
   end
+  # If the LOG_TO_FILE variable is not set, print the application log to STDOUT. Otherwise to log/RACK_ENV.log
+  self.logger = Logger.new(ENV['LOG_TO_FILE'] ? root.join('log', "#{env}.log") : STDOUT)
 
   Dir[root.join('config/initializers/**/*.rb')].each {|initializer| require initializer }
   $LOAD_PATH.unshift root.join('lib')
