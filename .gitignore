@@ -5,5 +5,7 @@ coverage/*
 .DS_Store
 .bundle
 *sqlite3
+.yardoc
+doc
 # Remove this in real-world usage!
 Gemfile.lock

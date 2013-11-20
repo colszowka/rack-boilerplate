@@ -11,3 +11,7 @@ gem 'rake', require: false
 group :development, :test do
   gem 'pry'
 end
+
+group :documentation do
+  gem 'yard', require: false
+end
