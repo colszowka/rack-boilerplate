@@ -20,9 +20,9 @@ on you. Various added functionalities are present in branches of this repo. Curr
 
 To construct your custom boilerplate out of these functionalities, the process goes like this:
 
-    * Clone the repository
-    * Create a custom branch off of master with `git checkout master && git checkout -b customized` 
-    * Bring in the add-ons you want with `git rebase BRANCH_NAME`
+  * Clone the repository
+  * Create a custom branch off of master with `git checkout master && git checkout -b customized` 
+  * Bring in the add-ons you want with `git rebase BRANCH_NAME`
 
 Now you should have a branch that includes all the components you would like. Since you probably do not want 
 the git history of the boilerplate repo, you can package your branch up as a clean zip file using `git archive`:
