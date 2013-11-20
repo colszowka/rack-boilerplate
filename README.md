@@ -16,6 +16,7 @@ on you. Various added functionalities are present in branches of this repo. Curr
 
   * `rspec` - Bootstraped RSpec testing of your project using rack-test, with simplecov enabled.
   * `yard` - API documentation using yard, defaulting to markdown syntax all the way
+  * `active_record` - Sets you up with ActiveRecord and database migrations
 
 To construct your custom boilerplate out of these functionalities, the process goes like this:
 
