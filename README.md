@@ -29,4 +29,15 @@ the git history of the boilerplate repo, you can package your branch up as a cle
 
     git archive --format zip --output tmp/bp-customized.zip customized
 
+After that, you can extract the archive contents into a directory where you'd like to get started. You can also
+perform some cleanup:
+
+    git init
+    cat .gitignore | grep -v Gemfile.lock > .gitignore
+    echo '# My Shiny Rack App' > README.md
+    rm -f MIT_LICENSE
+    rm -f db/migrate/*.rb
+    git add .
+    git commit -m "Initial commit"
+
 *More documentation is obviously required - for now, please refer to the commit notes.*
