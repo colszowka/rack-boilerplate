@@ -22,4 +22,8 @@ module App
   $LOAD_PATH.unshift root.join('lib')
   # Require the file in load path that matches the snake_case version of your App constant
   require to_s.gsub(/(\w)([A-Z])/, '\\1_\\2').downcase
+
+  # Load our routes file, which is actually a Rack Endpoint if rack is available (i.e. running
+  # inside an app server)
+  require root.join('config/routes') if defined?(::Rack)
 end
