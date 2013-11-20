@@ -7,3 +7,7 @@ gem 'foreman', require: false
 gem 'puma', require: false
 
 gem 'rake', require: false
+
+group :development, :test do
+  gem 'pry'
+end
