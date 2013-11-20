@@ -2,6 +2,8 @@ ENV['RACK_ENV'] ||= 'development'
 require 'bundler'
 Bundler.require :default, ENV['RACK_ENV']
 require 'ostruct'
+# Load ENV configuration. The precedence is: Existing (i.e. given in shell), .env.RACK_ENV, .env
+Dotenv.load ".env.#{ENV['RACK_ENV']}", '.env'
 
 module App
   Config = OpenStruct.new
